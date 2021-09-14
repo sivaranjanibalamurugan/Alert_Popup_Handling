@@ -85,5 +85,25 @@ namespace AlertPopupHandling
                 Console.WriteLine("Dismiss Test Successful");
             }
         }
+        [Test, Order(3)]
+        public void test_sendalert()
+        {
+            string button_css_selector = "button[onclick = 'jsPrompt()']";
+            var expectedAlertText = "I am a JS prompt";
+            WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(20));
+            driver.Url = testurl;
+            IWebElement confirmButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(button_css_selector)));
+            confirmButton.Click();
+            var confirm_win = driver.SwitchTo().Alert();
+            confirm_win.SendKeys("Confirm as Siva");
+            confirm_win.Accept();
+            IWebElement clickResult = driver.FindElement(By.Id("result"));
+            Console.WriteLine(clickResult.Text);
+            if (clickResult.Text == "Confirm as Siva")
+            {
+                Console.WriteLine("Accept Test Successful");
+            }
+
+        }
     }
 }
