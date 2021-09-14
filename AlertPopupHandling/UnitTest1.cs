@@ -61,5 +61,29 @@ namespace AlertPopupHandling
                 Console.WriteLine("Confirm Text Successful");
             }
         }
+        [Test, Order(2)]
+        public void test_dismiss()
+        {
+            String button_css_selector = "button[onclick='jsConfirm()']";
+            var expectedAlertText = "I am a JS Confirm";
+
+            WebDriverWait wait = new WebDriverWait(driver, new TimeSpan(10));
+            driver.Url = testurl;
+
+            IWebElement confirmButton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(button_css_selector)));
+
+            confirmButton.Click();
+
+            var confirm_win = driver.SwitchTo().Alert();
+            confirm_win.Dismiss();
+
+            IWebElement clickResult = driver.FindElement(By.Id("result"));
+            Console.WriteLine(clickResult.Text);
+
+            if (clickResult.Text == "You clicked: Cancel")
+            {
+                Console.WriteLine("Dismiss Test Successful");
+            }
+        }
     }
 }
