@@ -29,5 +29,10 @@ namespace AlertPopupHandling
         {
             DoActions.DoActions.test_Dismiss();
         }
+        [Test,Order(3)]
+        public void test_Promt()
+        {
+            DoActions.DoActions.test_Promt();
+        }
     }
 }

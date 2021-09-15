@@ -1,4 +1,8 @@
-﻿using OpenQA.Selenium;
+﻿/*Project = Popup Handling
+ * created by = SivaRanjani B
+ * dated on = 13/09/21
+ */
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System;
 using System.Collections.Generic;
@@ -39,5 +43,14 @@ namespace AlertPopupHandling.AlertClass
         [FindsBy(How = How.Id, Using = "result")]
         [CacheLookup]
         public IWebElement clickforResult;
+
+        //To Locate the webelement for the Send-Text
+        [FindsBy(How = How.CssSelector, Using = "button[onclick = 'jsPrompt()']")]
+        [CacheLookup]
+        public IWebElement jsPrompt;
+
+        [FindsBy(How = How.Id, Using = "result")]
+        [CacheLookup]
+        public IWebElement clicktheResult;
     }
 }

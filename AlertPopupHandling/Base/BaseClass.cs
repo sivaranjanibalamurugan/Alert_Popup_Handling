@@ -20,15 +20,14 @@ namespace AlertPopupHandling.Base
         public static  IWebDriver driver;
 
         [SetUp]
-      public void start_Browser()
-       { 
-
+        public void start_Browser()
+        {
             //local selenium webdriver
             driver = new ChromeDriver();
            driver.Manage().Window.Maximize();
             System.Threading.Thread.Sleep(200);
            driver.Url = "https://the-internet.herokuapp.com/javascript_alerts";
-       }
+      }
         [TearDown]
         public  void close_Browser()
         {
