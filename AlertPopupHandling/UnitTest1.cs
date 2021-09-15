@@ -24,5 +24,10 @@ namespace AlertPopupHandling
         {
             DoActions.DoActions.test_Confirm();
         }
+        [Test,Order(2)]
+        public void test_Dismiss()
+        {
+            DoActions.DoActions.test_Dismiss();
+        }
     }
 }

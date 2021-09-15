@@ -34,10 +34,24 @@ namespace AlertPopupHandling.DoActions
             var alert_win = driver.SwitchTo().Alert();
             alert_win.Accept();
             System.Threading.Thread.Sleep(2000);
-            Console.WriteLine(alert.clickResult.Text);
-            if (alert.clickResult.Text == "You clicked: Ok") 
+            Console.WriteLine(alert.clickonResult.Text);
+            if (alert.clickonResult.Text == "You clicked: Ok") 
             {
                 Console.WriteLine("Confirm Text Successful");
+            }
+        }
+        public static void test_Dismiss()
+        {
+            Alert alert = new Alert(driver);
+            alert.jsDismiss.Click();
+            System.Threading.Thread.Sleep(2000);
+            var alert_win = driver.SwitchTo().Alert();
+            alert_win.Dismiss();
+            System.Threading.Thread.Sleep(2000);
+            Console.WriteLine(alert.clickforResult.Text);
+            if(alert.clickforResult.Text == "You clicked: Cancel")
+            {
+                Console.WriteLine("Dismiss Test Successful");
             }
         }
     }

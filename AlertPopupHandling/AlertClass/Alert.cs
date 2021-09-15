@@ -18,17 +18,26 @@ namespace AlertPopupHandling.AlertClass
         [FindsBy(How = How.CssSelector, Using = "button[onclick='jsAlert()']")]
         [CacheLookup]
         public IWebElement jsAlert;
-/*
+
         [FindsBy(How = How.Id, Using = "result")]
         [CacheLookup]
-        public IWebElement clickResult;*/
-    
+        public IWebElement clickResult;
+      //To Locate the Webelement for the Confirm alert - OK
         [FindsBy(How = How.CssSelector, Using = "button[onclick = 'jsConfirm()']")]
         [CacheLookup]
         public IWebElement jsConfirm;
 
         [FindsBy(How = How.Id, Using = "result")]
         [CacheLookup]
-        public IWebElement clickResult;
+        public IWebElement clickonResult;
+
+        //To Locate the webelement for the Confirm - Dismiss
+        [FindsBy(How = How.CssSelector, Using = "button[onclick='jsConfirm()'")]
+        [CacheLookup]
+        public IWebElement jsDismiss;
+
+        [FindsBy(How = How.Id, Using = "result")]
+        [CacheLookup]
+        public IWebElement clickforResult;
     }
 }
