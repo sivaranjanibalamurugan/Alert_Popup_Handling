@@ -14,26 +14,23 @@ using System.Threading.Tasks;
 
 namespace AlertPopupHandling.Base
 {
-    public class BaseClass
+    public  class BaseClass
     {
-        public string testurl = "https://the-internet.herokuapp.com/javascript_alerts";
-        public IWebDriver driver;
+        
+        public static  IWebDriver driver;
 
-      [SetUp]
+        [SetUp]
       public void start_Browser()
-      {
-            
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("Start-Maximized");
-            options.AddArgument("headless");
+       { 
 
             //local selenium webdriver
             driver = new ChromeDriver();
            driver.Manage().Window.Maximize();
             System.Threading.Thread.Sleep(200);
-      }
+           driver.Url = "https://the-internet.herokuapp.com/javascript_alerts";
+       }
         [TearDown]
-        public void close_Browser()
+        public  void close_Browser()
         {
             driver.Quit();
         }
